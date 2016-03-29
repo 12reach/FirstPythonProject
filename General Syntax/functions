@@ -1,0 +1,49 @@
+In Python, functions or subroutines are extremely important for reusability of codes. We can call a function
+for several times and pass many kind of arguments or parameters to get different effects.
+
+<code>
+def main():
+
+    loops()
+    loops()
+    loops()
+    #print("This is main function")
+
+def loops():
+    for i in range(6):
+        print(i, " ")
+
+if __name__ == "__main__":
+    main()
+</code>
+
+The output is :
+
+0
+1
+2
+3
+4
+5
+*************
+0
+1
+2
+3
+4
+5
+*************
+0
+1
+2
+3
+4
+5
+*************
+
+Now let us try to understand why and how it happens. With "def" keyword we define a function name.
+And the parenthesis () are meant to hold arguments or parameters in between them.
+Now in def loops(6) function we have defined a function that is looping through from 0 to 5.
+Now under main() function we have called that loops() function three times and you have seen the above
+output.
+

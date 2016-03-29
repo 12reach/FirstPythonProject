@@ -1,0 +1,33 @@
+In python there are two types of conditionals. Conditionals executions and conditionals values or expressions. In Conditional
+executions we execute or check the condition of the statement. We know between two values there could be three
+types of conditions.
+It is either less than or greater than or it is equal.
+
+<code>
+
+#!/usr/bin/python3
+
+a, b = 1, 8
+
+if a < b:
+    print("a is less than b.")
+elif a > b:
+    print("a is greater than b.")
+else:
+    print("a is equal to b.")
+
+</code>
+
+ The output is obvious. Now you can change the value and test the code.
+ Now try to rewrite the above statement in a different way. We can say x is either less than y or greater than y.
+ Else it is obviuos that they are equal.
+
+
+<code>
+x, y = 2, 8
+
+statements = "x is less than y." if x < y else " x is not Less than y."
+
+print(statements)
+</code>
+

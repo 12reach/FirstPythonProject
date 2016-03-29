@@ -1,0 +1,328 @@
+Containers
+In Python tuples and lists are array types. 
+<code>
+#!/usr/bin/python3
+tuples1 = 1, 2, 3, 4
+print(type(tuples1))
+print(id(tuples1))
+tuples2 = (1, 2, 3, 4)
+print(type(tuples2))
+print(id(tuples2))
+print(tuples1[0])
+print(tuples2[0])
+# it will give the last item
+print(tuples2[-1])
+print(type(tuples1[0]))
+print(type(tuples2[0]))
+print(id(tuples1[0]))
+print(id(tuples2[0]))
+# tuple is immutable we can not change any value
+# 'tuple' object does not support item assignment
+# tuples2[0] = 120
+# print(tuples2)
+# to make an integer tuple you need to add comma separator
+IsItTuple = (1)
+print(type(IsItTuple))
+IsItTuple = (1,)
+print(type(IsItTuple))
+# let us see how list behaves
+list1 = [1, 2, 3, 4]
+print(type(list1))
+print(id(list1))
+# first item
+print(list1[0])
+# last item
+print(list1[-1])
+# we can change the value of a list item
+list1[0] = 120
+print(list1) # output: [120, 2, 3, 4]
+</code> 
+<blockquote>
+<class 'tuple'>
+139794725901080
+<class 'tuple'>
+139794725900920
+1
+1
+4
+<class 'int'>
+<class 'int'>
+10455040
+10455040
+<class 'int'>
+<class 'tuple'>
+<class 'list'>
+139794725273480
+1
+4
+[120, 2, 3, 4]
+</blockquote>
+
+Operating on Tuple and List Object
+Python standard file.
+<code>
+root@kali:~# python3
+Python 3.4.4 (default, Jan  5 2016, 15:35:18) 
+[GCC 5.3.1 20160101] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> t = (1,2,3,4)
+>>> t
+(1, 2, 3, 4)
+>>> t[0]
+1
+>>> t = tuple(range(25))
+>>> type(t)
+<class 'tuple'>
+>>> 50 in t
+False
+>>> 10 in t
+True
+>>> for i in t:print(i)
+... 
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+>>> l = list(range(20))
+>>> type(l)
+<class 'list'>
+>>> for i in l:
+... print(i)
+  File "<stdin>", line 2
+    print(i)
+        ^
+IndentationError: expected an indented block
+>>> for i in l:print(i)
+... 
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+>>> l[2]
+2
+>>> 50 in l
+False
+>>> 12 in l
+True
+>>> t[0] = 25
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'tuple' object does not support item assignment
+>>> l[0] = 25
+>>> print(l)
+[25, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+>>> t.append(50)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'tuple' object has no attribute 'append'
+>>> l.append(120)
+>>> print(l
+l         lambda    len(      license(  list(     locals(   
+>>> print(l)
+[25, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 120]
+>>> t.count()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: count() takes exactly one argument (0 given)
+>>> t.count(5)
+1
+>>> l.append(25)
+>>> l.count(25)
+2
+>>> t.index(10)
+10
+>>> l.index(10)
+10
+>>> l.extend(range(25))
+>>> for i in l:print(i)
+... 
+25
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+120
+25
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+>>> l.insert(0, 4656)
+>>> l[0]
+4656
+>>> l.insert(12, 147)
+>>> l.index(12)
+14
+>>> l[12]
+147
+>>> l.remove(12)
+>>> l[12]
+147
+>>> print(l)
+[4656, 25, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 147, 11, 13, 14, 15, 16, 17, 18, 19, 120, 25, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+>>> l.remove(12)
+>>> print(l)
+[4656, 25, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 147, 11, 13, 14, 15, 16, 17, 18, 19, 120, 25, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+>>> l.pop(0)
+4656
+>>> print(l)
+[25, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 147, 11, 13, 14, 15, 16, 17, 18, 19, 120, 25, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+>>> l.pop()
+24
+>>> print(l)
+[25, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 147, 11, 13, 14, 15, 16, 17, 18, 19, 120, 25, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+>>> 
+
+</code> 
+<blockquote>
+They are friends.
+</blockquote>
+
+Operating on Dictionary Object
+
+Python standard file.
+<code>
+root@kali:~# python3
+Python 3.4.4 (default, Jan  5 2016, 15:35:18) 
+[GCC 5.3.1 20160101] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> x = {'one':1, 'two':2, 'three':3}
+>>> type(x)
+<class 'dict'>
+>>> y = dict(four = 4, five = 5, six = 6)
+>>> type(y)
+<class 'dict'>
+>>> z = dict(seven = 7, eight = 8, nine = 9, **x, **y)
+  File "<stdin>", line 1
+    z = dict(seven = 7, eight = 8, nine = 9, **x, **y)
+                                                ^
+SyntaxError: invalid syntax
+>>> z = dict(seven = 7, eight = 8, nine = 9, **x)
+>>> type(z)
+<class 'dict'>
+>>> print(z)
+{'eight': 8, 'two': 2, 'nine': 9, 'one': 1, 'seven': 7, 'three': 3}
+>>> for i in z:print(i)
+... 
+eight
+two
+nine
+one
+seven
+three
+>>> for key, value in z.items():print(key, value)
+... 
+eight 8
+two 2
+nine 9
+one 1
+seven 7
+three 3
+>>> for key, value in z.items():
+...   if key == two:
+...     print(value)
+... 
+Traceback (most recent call last):
+  File "<stdin>", line 2, in <module>
+NameError: name 'two' is not defined
+>>> z.pop()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: pop expected at least 1 arguments, got 0
+>>> z.pop(three)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'three' is not defined
+>>> z.pop('three')
+3
+>>> for i in z:print(i)
+... 
+eight
+two
+nine
+one
+seven
+>>> for key, value in z.items():
+...   if key == 'nine':
+...     print(value)
+... 
+9
+>>> 
+</code> 
+<blockquote>
+They are friends.
+</blockquote>
+
